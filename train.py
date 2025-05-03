@@ -121,6 +121,10 @@ def run_validation(model, validation_ds, tokenizer_src, tokenizer_tgt, max_len, 
         writer.add_scalar('validation BLEU', bleu, global_step)
         writer.flush()
 
+        print(f"Char Error Rate : {cer:0.4f}")
+        print(f"Word Error Rate : {wer:0.4f}")
+        print(f"BLEU SCORE : {bleu:0.4f}")
+
 def get_all_sentences(ds, lang):
     for item in ds:
         yield item['translation'][lang]
